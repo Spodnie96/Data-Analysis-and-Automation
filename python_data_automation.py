@@ -10,9 +10,9 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Używam fillna, bo to najszybsza metoda na uzupełnienie braków (wstawiamy średnią)
+# Używam fillna, żeby szybko uzupełnić braki średnią wartością
 mean_sales = df['Sales_Value'].mean()
-df['Sales_Value'].fillna(mean_sales, inplace=True)
+df['Sales_Value'] = df['Sales_Value'].fillna(mean_sales)
 
 # Filtruję tylko zakończone transakcje, bo tylko one nas interesują do raportu
 completed_sales = df[df['Status'] == 'Completed']
